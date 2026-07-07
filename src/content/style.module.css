@@ -1,0 +1,50 @@
+.letter {
+  max-width: 480px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  animation: letterIn 0.9s ease 0.1s both;
+}
+
+@keyframes letterIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text {
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  line-height: 2;
+  color: #222;
+  margin: 0;
+}
+
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #bbb;
+  animation: bounce 2.2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}

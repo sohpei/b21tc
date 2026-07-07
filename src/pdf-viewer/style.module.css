@@ -1,0 +1,28 @@
+.viewer {
+  width: 100%;
+}
+
+/* Each page sits in its own container with a subtle shadow */
+.page {
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  line-height: 0; /* removes phantom gap below canvas */
+}
+
+.page:last-child {
+  margin-bottom: 0;
+}
+
+/* react-pdf renders a <canvas> — make it fill the page wrapper */
+.page :global(canvas) {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.status {
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  color: #aaa;
+  margin: 0 0 1rem;
+}

@@ -1,0 +1,190 @@
+.section {
+  position: relative;
+  /* Fade in when first added to the DOM */
+  animation: sectionIn 0.7s ease 0.15s both;
+}
+
+@keyframes sectionIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Transparent → white gradient at the top of this section ── */
+.topFade {
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  pointer-events: none;
+}
+
+/* ── White body ── */
+.body {
+  background: #fff;
+  min-height: 100svh;
+  padding: 2rem 2rem 8rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ── Section header ── */
+.header {
+  margin-bottom: 3rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #111;
+  margin: 0 0 0.75rem;
+}
+
+.description {
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  line-height: 1.9;
+  color: #666;
+  margin: 0;
+}
+
+/* ── Artifacts grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+/* ── Single artifact card ── */
+.card {
+  background: none;
+  border: 1px solid transparent;
+  padding: 1rem 0.75rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  transition: border-color 0.2s, opacity 0.2s;
+  border-radius: 2px;
+}
+
+.card:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.75;
+}
+
+.iconWrap {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.iconPlaceholder {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 1px;
+}
+
+.cardTitle {
+  font-family: ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ── Artifact detail view ── */
+.detail {
+  max-width: 560px;
+}
+
+.backButton {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  font-family: ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  color: #999;
+  transition: opacity 0.2s;
+  outline: none;
+}
+
+.backButton:hover {
+  opacity: 0.5;
+}
+
+.detailTitle {
+  font-family: ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #111;
+  margin: 0 0 1.75rem;
+}
+
+.detailContent {
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  line-height: 2;
+  color: #333;
+}
+
+.detailContent p {
+  margin: 0 0 1.1em;
+}
+
+.detailContent p:last-child {
+  margin-bottom: 0;
+}
+
+.detailContent ul,
+.detailContent ol {
+  margin: 0 0 1em;
+  padding-left: 1.4em;
+}
+
+.detailContent li {
+  margin-bottom: 0.4em;
+}
+
+.detailContent blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 2px solid rgba(0, 0, 0, 0.15);
+  color: #555;
+}
+
+.detailContent strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.detailContent a {
+  color: #111;
+  text-underline-offset: 2px;
+}
