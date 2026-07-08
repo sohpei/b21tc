@@ -32,7 +32,7 @@ function artworkAutoDiscovery(): Plugin {
         .filter((f) => f.toLowerCase().endsWith(".png"))
         .map((filename) => {
           const { width, height } = readPngDimensions(path.join(dir, filename));
-          return { url: `/artworks/${encodeURIComponent(filename)}`, width, height };
+          return { url: `artworks/${encodeURIComponent(filename)}`, width, height };
         });
       return `export default ${JSON.stringify(artworks)};`;
     },
