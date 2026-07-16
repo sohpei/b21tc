@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 export function Frame() {
   return (
     <header className={`frame ${styles.frame}`}>
-      <h1 className={styles.frame__title}>...</h1>
+      <h1 className={styles.frame__title}></h1>
       {/* <a className={styles.frame__back} href="https://tympanus.net/codrops/?p=106679">
         Article
       </a> */}
@@ -14,7 +14,7 @@ export function Frame() {
         GitHub
       </a> */}
       <div className={styles.frame__credits}>
-        <span>...</span>
+        <span></span>
       </div>
       <nav className={styles.frame__tags}>
         {/* <a href="https://tympanus.net/codrops/demos/?tag=scroll">#scroll</a>
