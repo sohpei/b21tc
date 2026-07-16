@@ -9,11 +9,33 @@ import { Landing } from "~/src/landing";
 import { PageLoader } from "~/src/loader";
 import styles from "./style.module.css";
 
+function useIsNarrowScreen() {
+  const [isNarrowScreen, setIsNarrowScreen] = React.useState(() => window.innerWidth < 768);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const handleChange = () => {
+      setIsNarrowScreen(mediaQuery.matches);
+    };
+
+    handleChange();
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+  return isNarrowScreen;
+}
+
 export function App() {
   const [media] = React.useState<MediaItem[]>(artworks);
   const [textureProgress, setTextureProgress] = React.useState(0);
   const [entered, setEntered] = React.useState(false);
   const canvasRef = React.useRef<HTMLDivElement>(null);
+  const isNarrowScreen = useIsNarrowScreen();
 
   // Fade the canvas out as the user scrolls into the artifacts section.
   // Direct DOM mutation — no React state, no re-renders.
@@ -38,6 +60,12 @@ export function App() {
 
   return (
     <>
+      {isNarrowScreen && (
+        <div className={styles.narrowScreenOverlay} role="alert" aria-live="polite">
+          <p className={styles.narrowScreenText}>Please open this site on desktop, not mobile.</p>
+        </div>
+      )}
+
       {/* Canvas: fixed in background, fades on scroll */}
       <div ref={canvasRef} className={styles.canvasWrapper}>
         <InfiniteCanvas

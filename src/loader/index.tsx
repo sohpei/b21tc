@@ -49,8 +49,11 @@ export function PageLoader({ progress }: { progress: number }) {
 
   return (
     <div className={`${styles.overlay} ${isHidden ? styles.hidden : styles.visible}`}>
-      <div className={styles.progressBarContainer}>
-        <div className={styles.progressBarFill} style={{ transform: `scaleX(${visualProgress / 100})` }} />
+      <div className={styles.content}>
+        <p className={styles.label}>page still loading</p>
+        <div className={styles.progressBarContainer}>
+          <div className={styles.progressBarFill} style={{ transform: `scaleX(${visualProgress / 100})` }} />
+        </div>
       </div>
     </div>
   );
